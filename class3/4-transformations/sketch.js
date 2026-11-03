@@ -98,6 +98,28 @@ function setup() {
   angleMode(DEGREES);       // gli angoli sono espressi in gradi
 }
 
+//disegna il razzo con l'icona caricata
+function drawRocketFromFile(){
+  image(rocketImg,xRocket,yRocket,50,50);
+}
+
+//disegna la singola stella con l'icona caricata
+function drawStarFromFile(dx,dy,size){
+  image(starImg,dx,dy,size,size);
+}
+
+//calcola le coordinate e recupera la dimensione di ogni singola stella
+function drawStarsFromTable() {
+  fot (let i = 0; i<table.getRowCount(); i++ ){
+    let starX=(i*37) %width+(i%3)*5;
+    let starY( (i*73)%height)+(i%7);
+
+    let size=table.getNum(i, "starSize");
+    drawStarFromFile(starX,starY,size);
+    }
+  }
+
+
 function draw() {
   background("#C0E1FC"); // azzurro chiaro
 
